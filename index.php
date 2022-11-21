@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" type="text/css" href="index_style.css">
+    <link rel="stylesheet" type="text/css" href="register_style.css">
+
     <title>Home</title>
 </head>
 
@@ -37,13 +40,11 @@
         <form action="signup.php" method="post" class="modal-content">
             <span class="close">&times;</span>
             <h1>Register</h1>
-            <input type="text" name="firstName" placeholder="First Name" class="input">
-            <input type="text" name="middleName" placeholder="Middle Name" class="input">
-            <input type="text" name="lastName" placeholder="Last Name" class="input"><br><br>
-            <input type="text" name="studentID" placeholder="Student ID" class="input">
-            <input type="text" name="username" placeholder="Username" class="input"><br><br>
-            <input type="password" name="password" placeholder="Password" class="input"><br><br>
+            <input type="text" name="userName" placeholder="User Name" class="input"><br><br>
+            <input type="text" name="email" placeholder="Email" class="input"><br><br>
             <input type="text" name="phone" placeholder="Phone Number" class="input"><br><br>
+            <input type="password" name="password" placeholder="Password" class="input">
+
         </form>
     </div>
 
