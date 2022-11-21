@@ -12,7 +12,7 @@
     <title>Registration</title>
 </head>
 <body>
-    <div class="content">
+    <!-- <div class="content">
         <form action="signup.php" method="post" class="form-wrapper">
             <h1>Register</h1>
             <input type="text" name="firstName" placeholder="First Name" class="input">
@@ -29,7 +29,7 @@
                 Already have an account? Click <a href="index.php">here</a> to log in.
             </p>
         </form>
-    </div>
+    </div> -->
     
 
     <?php

@@ -8,7 +8,7 @@ body {
 }
 
 form {
-	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .form-wrapper {
@@ -17,11 +17,13 @@ form {
 }
 
 .content {
-	display: flex;
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-flow: 1fr;
 	justify-content: center;
-	padding-top: 5rem;
+	/* padding-top: 5rem; */
 }
 
 .input {
-    width: calc(-5rem);
+	width: calc(+5rem);
 }
