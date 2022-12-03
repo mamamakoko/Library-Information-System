@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="register_style.css">
     <title>Registration</title>
 </head>
+
 <body>
     <!-- <div class="content">
         <form action="signup.php" method="post" class="form-wrapper">
@@ -30,34 +32,34 @@
             </p>
         </form>
     </div> -->
-    
+
 
     <?php
-        if(isset($_POST['submit'])) {
-            require_once 'database.php';
+    if (isset($_POST['submit'])) {
+        require_once 'database.php';
 
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-            $phone = $_POST['phone'];
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $phone = $_POST['phone'];
 
-            if(empty($username) || empty($password) || empty($phone)) {
-                echo "<h3 class='e-message'>All fields must be filled.</h3>" ;
+        if (empty($username) || empty($password) || empty($phone)) {
+            echo "<h3 class='e-message'>All fields must be filled.</h3>";
+        } else {
+            $sql = "SELECT * FROM lis WHERE username = '$username'";
+            $unique = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($unique)) {
+                echo "<h3 class='e-message'>Username already exists.</h3>";
             } else {
-                $sql = "SELECT * FROM ita212exercise WHERE username = '$username'";
-                $unique = mysqli_query($conn, $sql);
-                if(mysqli_num_rows($unique)) {
-                    echo "<h3 class='e-message'>Username already exists.</h3>";
-                } else {
-                    $sql = "INSERT INTO ita212exercise (username, password, phone)
+                $sql = "INSERT INTO lis (username, password, phone)
                             VALUES ('$username', '$password', '$phone')";
-                    mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql);
 
-                    header("LOCATION: index.php");
-                    exit();
-                }
+                header("LOCATION: index.php");
+                exit();
             }
-            
         }
+    }
     ?>
 </body>
+
 </html>

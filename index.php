@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="index_style.css">
     <link rel="stylesheet" type="text/css" href="register_style.css">
 
-    <title>Home</title>
+    <title>White Circle</title>
 </head>
 
 <body>
@@ -83,7 +83,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM ita212exercise WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM lis WHERE username = '$username' AND password = '$password'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
