@@ -38,19 +38,21 @@
     if (isset($_POST['submit'])) {
         require_once 'database.php';
 
+        $userID = $_POST['userID'];
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $email = $_POST['email'];
         $phone = $_POST['phone'];
+        $password = $_POST['password'];
 
         if (empty($username) || empty($password) || empty($phone)) {
             echo "<h3 class='e-message'>All fields must be filled.</h3>";
         } else {
-            $sql = "SELECT * FROM lis WHERE username = '$username'";
+            $sql = "SELECT * FROM account WHERE username = '$username'";
             $unique = mysqli_query($conn, $sql);
             if (mysqli_num_rows($unique)) {
                 echo "<h3 class='e-message'>Username already exists.</h3>";
             } else {
-                $sql = "INSERT INTO lis (username, password, phone)
+                $sql = "INSERT INTO account (username, password, phone)
                             VALUES ('$username', '$password', '$phone')";
                 mysqli_query($conn, $sql);
 

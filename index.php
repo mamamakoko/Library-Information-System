@@ -29,7 +29,7 @@
             <input type="submit" name="submit" value="Login" class="submit">
 
             <p>
-                Don't have an account? Click <button type="button" id="myBtn">register</button>
+                Don't have an account? Click <button type="button" id="signup">Sign up</button>
             </p>
         </form>
     </div>
@@ -37,13 +37,15 @@
     <!-- Register Modal -->
 
     <div id="myModal" class="modal">
-        <form action="signup.php" method="post" class="modal-content">
+        <form action="index.php" method="post" class="modal-content">
             <span class="close">&times;</span>
-            <h1>Register</h1>
+            <h1>Sign up</h1>
             <input type="text" name="userName" placeholder="User Name" class="input"><br><br>
             <input type="text" name="email" placeholder="Email" class="input"><br><br>
             <input type="text" name="phone" placeholder="Phone Number" class="input"><br><br>
             <input type="password" name="password" placeholder="Password" class="input">
+
+            <button type="submit" name="register" id="register">Register</button>
 
         </form>
     </div>
@@ -53,7 +55,7 @@
         var modal = document.getElementById("myModal");
 
         // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        var btn = document.getElementById("signup");
 
         // Get the <span> element that closes the modal
         var span = document.getElementsByClassName("close")[0];
@@ -83,7 +85,7 @@
         $username = $_POST['username'];
         $password = $_POST['password'];
 
-        $sql = "SELECT * FROM lis WHERE username = '$username' AND password = '$password'";
+        $sql = "SELECT * FROM account WHERE username = '$username' AND password = '$password'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) === 1) {
             $row = mysqli_fetch_assoc($result);
@@ -97,7 +99,6 @@
             echo "<h3 class='e-message'>Invalid username or password.</h3>";
         }
     }
-
     ?>
 
 
