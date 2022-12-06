@@ -1,3 +1,7 @@
+<?php
+    require_once './source/database.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,9 +10,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="index_style.css">
-    <link rel="stylesheet" type="text/css" href="register_style.css">
+    <link rel="stylesheet" type="text/css" href="./source/style.css">
+    <link rel="stylesheet" type="text/css" href="./source/index_style.css">
+    <link rel="stylesheet" type="text/css" href="./source/register_style.css">
 
     <title>White Circle</title>
 </head>
@@ -16,7 +20,7 @@
 <body>
 
     <div class="banner">
-        <form action="index.php" method="post" class="form-wrapper">
+        <form action="./process/log-in.php" method="post" class="form-wrapper">
             <div class="brand">
                 <img src="./asset/logo.png">
                 <p>WhiteCircle Library</p>
@@ -29,10 +33,14 @@
             <input type="submit" name="submit" value="Login" class="submit">
 
             <p>
-                Don't have an account? Click <button type="button" id="signup">Sign up</button>
+                Don't have an account? Click<button type="button" id="signup">Sign up</button>.
             </p>
         </form>
     </div>
+
+    <?php
+        require_once './process/log-in.php'
+    ?>
 
     <!-- Register Modal -->
 
@@ -78,28 +86,7 @@
         }
     </script>
 
-    <?php
-    if (isset($_POST['submit'])) {
-        require_once 'database.php';
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $sql = "SELECT * FROM account WHERE username = '$username' AND password = '$password'";
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-
-            if ($row['username'] === $username && $row['password'] === $password) {
-                echo "<h3 class='s-message'>Login success!</h3>";
-            } else {
-                echo "<h3 class='e-message'>Invalid username or password.</h3>";
-            }
-        } else {
-            echo "<h3 class='e-message'>Invalid username or password.</h3>";
-        }
-    }
-    ?>
+    
 
 
 </body>

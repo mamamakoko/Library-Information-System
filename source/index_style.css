@@ -1,0 +1,40 @@
+.banner {
+	background-image: url("../asset/background.jpg");
+	background-size: cover;
+	background-position: bottom;
+	height: 100vh;
+	padding: 0;
+}
+
+/*---------- form ----------*/
+
+.form-wrapper {
+	background-color: #f8f9fa;
+	height: calc(+100vh);
+	width: calc(+30vw);
+}
+
+.brand img {
+	width: 10rem;
+	height: auto;
+	padding-top: 3rem;
+	padding-bottom: 0rem;
+}
+
+.brand p {
+	font-size: 2rem;
+	padding-top: 0rem;
+}
+
+#signup {
+    border: none;
+}
+/* #signup:focus {
+    border: none;
+    outline: none;
+} */
+
+#signup:hover {
+	color: rgb(149, 149, 149);
+	cursor: pointer;
+}
